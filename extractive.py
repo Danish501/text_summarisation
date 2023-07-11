@@ -5,7 +5,14 @@ from heapq import nlargest
 
 def summarizer(rawdocs):
     stop_words = list(STOP_WORDS)
-    nlp = spacy.load('en_core_web_sm')
+    try:
+      nlp = spacy.load("en_core_web_sm")
+    except OSError:
+    # If the model is not installed, download it
+      import subprocess
+      subprocess.call("python -m spacy download en_core_web_sm", shell=True)
+      nlp = spacy.load("en_core_web_sm")
+
     doc = nlp(rawdocs)
 
     word_freq = {}
