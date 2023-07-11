@@ -18,8 +18,8 @@ def analyze():
 
     return render_template('sumary.html', summ=b, orig=a, len_orig=c, len_summ=d)
 
-port = int(os.environ.get('PORT', 5000))
-debug = bool(os.environ.get('DEBUG', True))
+# port = int(os.environ.get('PORT', 5000))
+# debug = bool(os.environ.get('DEBUG', True))
 
 if __name__ == '__main__':
-    app.run(port=port, debug=debug)
+    app.run(debug=False,host='0.0.0.0')
