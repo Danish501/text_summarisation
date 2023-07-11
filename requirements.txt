@@ -1,4 +1,5 @@
 spacy
 Flask
 gunicorn==20.1.0
+en-core-web-sm-abd
 
